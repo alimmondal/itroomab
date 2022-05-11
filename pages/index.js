@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import HashLoader from 'react-spinners/HashLoader';
+import HashLoader from 'react-spinners/HashLoader';
 import Head from 'next/head';
 import Intro from '../components/Intro';
 import Testimonials from '../components/Testimonials';
@@ -13,15 +13,16 @@ import FunFacts from '../components/FunFacts';
 import Footer from '../components/Footer';
 
 export default function Home() {
-  // const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // useEffect(() => {
-  //   setLoading(true);
-  //   setTimeout(() => {
-  //     setLoading(false);
-  //   }, 3000);
-  // }, []);
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
+
   return (
     <div>
       <Head>
@@ -32,25 +33,25 @@ export default function Home() {
         />
         <link rel="icon" href="/logo.png" />
       </Head>
-      {/* {loading ? (
+      {loading ? (
         <div className="loading">
           <HashLoader color={'#fffd700'} loading={loading} size={40} />
         </div>
       ) : (
-        <> */}
-      <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-      <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+        <>
+          <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+          <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
 
-      <Intro />
-      <About />
-      <Portfolio />
-      <CallToAction />
-      <Testimonials />
-      <Contact />
-      <FunFacts />
-      <Footer />
-      {/* </>
-      )} */}
+          <Intro />
+          <About />
+          <Portfolio />
+          <CallToAction />
+          <Testimonials />
+          <Contact />
+          <FunFacts />
+          <Footer />
+        </>
+      )}
     </div>
   );
 }
